@@ -16,7 +16,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./Project1_PHP/
-          server-dir: ./
+          server-dir: /www.giabaooss.somee.com/
   #deploy-node-render:
    # runs-on: ubuntu-latest
     #steps:

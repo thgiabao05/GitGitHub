@@ -17,8 +17,8 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./Project1_PHP/
           server-dir: /www.giabaooss.somee.com/
-  #deploy-node-render:
-   # runs-on: ubuntu-latest
-    #steps:
-     # - name: Trigger Render Deploy
-      #  run: curl -X GET ${{ secrets.RENDER_DEPLOY_HOOK }}
+  deploy-node-render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render Deploy
+        run: curl -X GET ${{ secrets.RENDER_DEPLOY_HOOK }}

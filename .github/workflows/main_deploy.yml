@@ -1,0 +1,25 @@
+name: CI/CD Final Project
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy-php-somee:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./Project1_PHP/
+          server-dir: /
+
+  deploy-node-render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render Deploy
+        run: curl -X GET ${{ secrets.RENDER_DEPLOY_HOOK }}
